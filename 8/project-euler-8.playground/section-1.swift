@@ -35,8 +35,7 @@ struct NaturalsSequence : SequenceType {
   func generate() -> GeneratorOf<Int> {
     var n = 0
     return GeneratorOf<Int> {
-      n++
-      return n-1
+      return n++
     }
   }
 }
@@ -62,16 +61,11 @@ let (idx, prod) = reduce(digitsWithIndex, (0, 0)) { accum, x in
   )
 }
 
-idx
-digits[idx..<idx+length]
-prod
+let digitsAtIdx = digits[idx..<idx+length].map { $0.description }.reduce("", +)
+
+"At index \(idx)"
+"the \(length) digits \(digitsAtIdx)"
+"have the maximum product of \(prod)"
 
 
 
-
-
-
-
-
-
-"done"
